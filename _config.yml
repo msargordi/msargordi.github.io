@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "About / Maziar Sargordi"
+title                    : "Maziar Sargordi"
 title_separator          : "-"
 name                     : &name "Maziar Sargordi"
 description              : &description "personal description"
