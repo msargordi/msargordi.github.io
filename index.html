@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maziar Sargordi Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <style>
+        .project-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .project-image {
+            width: 300px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .project-description {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="hamburger" onclick="toggleNav()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <h1>Maziar Sargordi</h1>
+            <div class="nav">
+                <a href="#about">About</a>
+                <a href="#news">News</a>
+                <a href="#research">Research</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/maziar-sargordi/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/maziar-sargordi"><i class="fab fa-github"></i></a>
+                <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#about">About</a>
+            <a href="#news">News</a>
+            <a href="#research">Research</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="overlay" id="overlay"></div>
+        <div class="profile">
+            <img src="imgs/maziar.jpg" alt="Profile picture of Maziar Sargordi" width="150" height="150"/>
+            <h2>Maziar Sargordi</h2>
+            <p>Master Student, Polytechnique Montreal & Mila</p>
+        </div>
+        <div class="content" id="about">
+            <h2>About</h2>
+            <p>
+                I am a Master student at the Department of Computer Engineering, Polytechnique Montreal and <a href="https://mila.quebec/en/">Mila</a>. Currently, I am doing research under supervision of <a href="https://mila.quebec/en/person/sarath-chandar/" target="_blank">Sarath Chandar</a> and <a href="https://www.polymtl.ca/expertises/en/zouaq-amal" target="_blank">Amal Zouaq</a>.
+            </p>
+            <p>
+                Prior to my journey in machine learning, I completed both my bachelor's and master's in mechanical engineering. I pursued my master's at the <a href="https://users.encs.concordia.ca/~kadem/" target="_blank">Laboratory of Cardiovascular Fluid Dynamics (LCFD)</a> under the supervision of <a href="https://www.concordia.ca/artsci/coms/faculty.html?fpid=lyes-kadem" target="_blank">Lyes Kadem</a> and <a href="https://www.concordia.ca/faculty/hoi-dick-ng.html" target="_blank">Hoi Dick Ng</a> at Concordia University. My master's thesis focused on <a href="https://spectrum.library.concordia.ca/986613/" target="_blank">Flow characteristics downstream of twin pulsed orifice jets: application to mitral valve repair</a>.
+            </p>
+        </div>
+        <div class="content" id="news">
+            <h2>News</h2>
+            <p>Upcoming: Presenting research on long document question answering at AI conference.</p>
+            <p>Recently started research on reinforcement learning for document analysis.</p>
+        </div>
+        <div class="content" id="research">
+            <h2>Research</h2>
+            <p>
+                As a machine learning enthusiast, I am currently working on long document question answering using reinforcement learning. My research aims to develop innovative approaches to improve document comprehension and question-answering systems.
+            </p>
+        </div>
+        <div class="content" id="projects">
+            <h2>Projects</h2>
+            <div class="project-section">
+                <img src="imgs/project1.jpg" alt="Retrieval-Augmented Generation (RAG) model" class="project-image" />
+                <div class="project-description">
+                    <h3>Retrieval-Augmented Generation (RAG) model</h3>
+                    <p>This is a RAG model to answer question from GitHub repos.</p>
+                    <p>Key points</p>
+                    <ul>
+                        <li>Model checks for hallucinations before it answers.</li>
+                        <li>Model answers if it has the solution in the repo.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="project-section">
+                <img src="project2.jpg" alt="Project Image" class="project-image" />
+                <div class="project-description">
+                    <h3>Another Project</h3>
+                    <p>Details about another project, explaining the goals and achievements.</p>
+                </div>
+            </div> -->
+        </div>        
+        <div class="content" id="contact">
+            <h2>Contact</h2>
+            <p>
+                Email: <a href="mailto:maziar.sargordi@gmail.com">maziar.sargordi@gmail.com</a>
+            </p>
+        </div>
+        <div class="content">
+            <img src="imgs/footer.jpg" alt="Research and academic representation" class="wide-svg"/>
+        </div>
+    </div>
+
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById("mobile-nav");
+            var overlay = document.getElementById("overlay");
+            var hamburger = document.querySelector(".hamburger");
+            
+            if (nav.style.display === "flex") {
+                nav.style.display = "none";
+                overlay.style.display = "none";
+                hamburger.classList.remove("active");
+                document.body.style.overflow = "auto";
+            } else {
+                nav.style.display = "flex";
+                overlay.style.display = "block";
+                hamburger.classList.add("active");
+                document.body.style.overflow = "hidden";
+            }
+        }
+
+        // Close mobile nav when a link or overlay is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.mobile-nav a, #overlay').forEach(element => {
+                element.addEventListener('click', () => {
+                    var nav = document.getElementById("mobile-nav");
+                    var overlay = document.getElementById("overlay");
+                    var hamburger = document.querySelector(".hamburger");
+                    
+                    nav.style.display = "none";
+                    overlay.style.display = "none";
+                    hamburger.classList.remove("active");
+                    document.body.style.overflow = "auto";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
